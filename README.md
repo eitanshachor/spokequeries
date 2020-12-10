@@ -5,7 +5,32 @@ An updating list for keeping Spoke queries.
 ```SQL
 to_char(u.created_at AT time zone 'mst', 'FMDy, FMMon FMDD, YYYY at FMHH:MI PM') as join_date
 ```
-Ethan RULES
+### Text Leaderboard w/Formatted Dates
+```SQL
+select 
+	u.id as user_id,
+	u.last_name,
+	u.first_name,
+	u.email,
+	u.cell,
+	to_char(u.created_at AT time zone 'mst', 'FMDy, FMMon FMDD, YYYY at FMHH:MI PM') as join_date,
+	u.alias,
+	count (message.id) as Sent_Texts_all_time
+from
+	public.user AS u,
+	public.message
+JOIN
+	campaign_contact ON campaign_contact.id = message.campaign_contact_id
+JOIN campaign ON campaign.id = campaign_contact.campaign_id
+WHERE
+	message.user_id = u.id AND
+  	message.is_from_contact = FALSE AND
+	message.send_status = 'DELIVERED' AND
+	campaign.organization_id = 5
+group by
+	u.id
+order by
+	u.id asc
 
 ### count answers of a specific answer
 ```SQL
