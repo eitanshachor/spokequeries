@@ -5,6 +5,21 @@ An updating list for keeping Spoke queries.
 ```SQL
 to_char(u.created_at AT time zone 'mst', 'FMDy, FMMon FMDD, YYYY at FMHH:MI PM') as join_date
 ```
+
+### Texts Received All Time
+```SQL
+SELECT 
+	COUNT (message.id) AS texts_sent_all_time
+FROM
+	public.message
+JOIN
+	campaign_contact ON campaign_contact.id = message.campaign_contact_id
+JOIN 
+	campaign ON campaign.id = campaign_contact.campaign_id
+WHERE
+  	message.is_from_contact = TRUE AND
+	campaign.organization_id = 5
+```
 ### Text Leaderboard w/Formatted Dates
 ```SQL
 select 
