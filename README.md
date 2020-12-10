@@ -1,6 +1,12 @@
 # spokequeries
 An updating list for keeping Spoke queries.
 
+### Proper Date Formatting
+```SQL
+to_char(u.created_at AT time zone 'mst', 'FMDy, FMMon FMDD, YYYY at FMHH:MI PM') as join_date
+```
+
+
 ### count answers of a specific answer
 ```SQL
 SELECT
