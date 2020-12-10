@@ -9,16 +9,16 @@ to_char(u.created_at AT time zone 'mst', 'FMDy, FMMon FMDD, YYYY at FMHH:MI PM')
 ### Texts Received All Time
 ```SQL
 SELECT 
-	COUNT (message.id) AS texts_sent_all_time
+    COUNT (message.id) AS texts_sent_all_time
 FROM
-	public.message
+    public.message
 JOIN
-	campaign_contact ON campaign_contact.id = message.campaign_contact_id
+    campaign_contact ON campaign_contact.id = message.campaign_contact_id
 JOIN 
-	campaign ON campaign.id = campaign_contact.campaign_id
+    campaign ON campaign.id = campaign_contact.campaign_id
 WHERE
-  	message.is_from_contact = TRUE AND
-	campaign.organization_id = 5
+    message.is_from_contact = TRUE AND
+    campaign.organization_id = 5
 ```
 ### Text Leaderboard w/Formatted Dates
 ```SQL
