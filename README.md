@@ -31,6 +31,7 @@ group by
 	u.id
 order by
 	u.id asc
+```
 
 ### count answers of a specific answer
 ```SQL
