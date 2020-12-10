@@ -55,4 +55,3 @@ WHERE
 	)
 GROUP BY external_id
 ```
-OK!!!!
