@@ -5,6 +5,23 @@ An updating list for keeping Spoke queries.
 ```SQL
 to_char(u.created_at AT time zone 'mst', 'FMDy, FMMon FMDD, YYYY at FMHH:MI PM') as join_date
 ```
+### New Voters Contacted Each Day
+```SQL
+SELECT COUNT(cell_number) as new_voters_contacted, contact_date
+FROM (SELECT message.contact_number as cell_number, to_char(MIN(message.created_at), 'MM-DD-YY') as contact_date
+FROM message
+INNER JOIN campaign_contact
+ON campaign_contact.id = message.campaign_contact_id
+INNER JOIN campaign
+ON campaign.id = campaign_contact.campaign_id
+WHERE campaign.is_started = 'TRUE'
+AND (campaign.title LIKE '%Retention%' OR
+	 campaign.title LIKE '%RETENTION%')
+AND campaign.organization_id = 5
+AND message.is_from_contact = 'FALSE'
+GROUP BY contact_number) AS T
+GROUP BY contact_date
+```
 ### Query I made w/Ricky that lists each campaign by campaign and responses
 ```SQL
 SELECT
