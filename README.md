@@ -5,6 +5,32 @@ An updating list for keeping Spoke queries.
 ```SQL
 to_char(u.created_at AT time zone 'mst', 'FMDy, FMMon FMDD, YYYY at FMHH:MI PM') as join_date
 ```
+### Query I made w/Ricky that lists each campaign by campaign and responses
+```SQL
+SELECT
+    campaign.id,
+    title,
+    interaction_step.question,
+    q_value,
+    answerz
+FROM
+    public.campaign
+JOIN
+    public.interaction_step ON campaign.id = interaction_step.campaign_id
+JOIN
+    (SELECT
+        campaign_id AS camp_id,
+        i_s.id AS i_s_id,
+        q_r.value AS q_value,
+        COUNT (q_r.value) AS answerz
+    FROM 
+        public.question_response AS q_r
+    JOIN 
+        public.interaction_step AS i_s ON q_r.interaction_step_id = i_s.id
+    GROUP BY campaign_id, i_s.id, q_r.value
+    ORDER BY campaign_id, i_s.id, answerz DESC) AS rickyz_table
+ON campaign.id = camp_id AND interaction_step.id = i_s_id
+```
 
 ### Texts Received All Time
 ```SQL
