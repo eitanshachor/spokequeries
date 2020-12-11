@@ -12,7 +12,7 @@ An updating list for keeping Spoke queries.
 
 | Metric | Number | Updated |
 | :--- | ---: | ---: |
-| [Sent Texts](https://github.com/eitanshachor/spokequeries/blob/main/README.md#sent-texts) | '3,203,204' | 12/10/20 |
+| [Sent Texts](https://github.com/eitanshachor/spokequeries/blob/main/README.md#sent-texts) | `3,203,204` | 12/10/20 |
 
 
 ***
