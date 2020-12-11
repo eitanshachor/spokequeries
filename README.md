@@ -1,10 +1,12 @@
 # Spoke Queries
 An updating list for keeping Spoke queries.
 
-***
 - [Campaign Contacts Who Opted-Out w/'STOP'](https://github.com/eitanshachor/spokequeries/blob/main/README.md#campaign-contacts-who-opted-out-wstop)
+- [Distinct Cells Where People Opted Out w/'Stop'](https://github.com/eitanshachor/spokequeries/blob/main/README.md#distinct-cells-where-people-opted-out-wstop)
+- [Proper Date Formatting](https://github.com/eitanshachor/spokequeries/blob/main/README.md#proper-date-formatting)
+- [New Voters Contacted Each Day]
 
-
+***
 ### Campaign Contacts Who Opted-Out w/'STOP'
 ```SQL
 SELECT 
