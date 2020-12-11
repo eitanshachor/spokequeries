@@ -15,7 +15,7 @@ WHERE
 	AND campaign.organization_id = 5
 	AND campaign.id > 21
 ```
-Count as of 12.10.20: 235349
+Count on 12/10/20: `235,349`
 
 ### Distinct Cells Where People Opted Out w/'Stop'
 ```SQL
@@ -31,7 +31,7 @@ WHERE
 	AND campaign.organization_id = 5
 	AND campaign.id > 21
 ```
-Count as of 12.10.20: 217695
+Count on 12/10/20: `217,695`
 
 ### Proper Date Formatting
 ```SQL
