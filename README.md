@@ -1,6 +1,38 @@
 # spokequeries
 An updating list for keeping Spoke queries.
 
+### Campaign Contacts Who Opted-Out w/'STOP'
+```SQL
+SELECT 
+	COUNT(cc.id)
+FROM 
+	campaign_contact as cc
+JOIN
+	campaign ON campaign.id = cc.campaign_id
+WHERE
+	error_code = -133
+	AND campaign.is_started = 'TRUE'
+	AND campaign.organization_id = 5
+	AND campaign.id > 21
+```
+Count as of 12.10.20: 235349
+
+### Distinct Cells Where People Opted Out w/'Stop'
+```SQL
+SELECT 
+	COUNT(DISTINCT(cc.cell))
+FROM 
+	campaign_contact as cc
+JOIN
+	campaign ON campaign.id = cc.campaign_id
+WHERE
+	error_code = -133
+	AND campaign.is_started = 'TRUE'
+	AND campaign.organization_id = 5
+	AND campaign.id > 21
+```
+Count as of 12.10.20: 217695
+
 ### Proper Date Formatting
 ```SQL
 to_char(u.created_at AT time zone 'mst', 'FMDy, FMMon FMDD, YYYY at FMHH:MI PM') as join_date
