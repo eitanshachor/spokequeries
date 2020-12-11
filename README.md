@@ -5,6 +5,15 @@ An updating list for keeping Spoke queries.
 - [Distinct Cells Where People Opted Out w/'Stop'](https://github.com/eitanshachor/spokequeries/blob/main/README.md#distinct-cells-where-people-opted-out-wstop)
 - [Proper Date Formatting](https://github.com/eitanshachor/spokequeries/blob/main/README.md#proper-date-formatting)
 - [New Voters Contacted Each Day](https://github.com/eitanshachor/spokequeries/blob/main/README.md#new-voters-contacted-each-day)
+- [Sent Texts](https://github.com/eitanshachor/spokequeries/blob/main/README.md#sent-texts)
+***
+
+## Topline Numbers w/Query Links
+
+| Metric | Number | Updated |
+| :--- | ---: | ---: |
+| [Sent Texts](https://github.com/eitanshachor/spokequeries/blob/main/README.md#sent-texts) | '3,203,204' | 12/10/20 |
+
 
 ***
 ### Campaign Contacts Who Opted-Out w/'STOP'
@@ -188,4 +197,21 @@ WHERE
 				 message_status = 'needsResponse') 
 	)
 GROUP BY external_id
+```
+
+### Sent Texts
+```SQL
+SELECT 
+	COUNT(m.id)
+FROM 
+	message as m
+JOIN
+	campaign_contact ON campaign_contact.id = m.campaign_contact_id
+JOIN 
+	campaign ON campaign.id = campaign_contact.campaign_id
+WHERE
+	campaign.is_started = 'TRUE'
+	AND campaign.organization_id = 5
+	AND campaign.id > 21
+	AND m.is_from_contact = FALSE
 ```
