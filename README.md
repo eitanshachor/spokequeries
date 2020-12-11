@@ -14,6 +14,7 @@ An updating list for keeping Spoke queries.
 | Metric | Number | Updated |
 | :--- | ---: | ---: |
 | [Sent Texts](https://github.com/eitanshachor/spokequeries/blob/main/README.md#sent-texts) | `3,203,204` | 12/10/20 |
+| [Received Texts](https://github.com/eitanshachor/spokequeries/blob/main/README.md#received-texts) | `515,111` | 12/10/20 |
 
 
 ***
