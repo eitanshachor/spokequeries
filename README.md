@@ -12,11 +12,11 @@ An updating list for keeping Spoke queries.
 
 ## Topline Numbers w/Query Links
 
-| Metric | Number | Updated |
-| :--- | ---: | ---: |
-| [Sent Texts](https://github.com/eitanshachor/spokequeries/blob/main/README.md#sent-texts) | `3,203,204` | 12/10/20 |
-| [Texts Delivered](https://github.com/eitanshachor/spokequeries/blob/main/README.md#texts-delivered) | `2,794,488` | 12/10/20 |
-| [Received Texts](https://github.com/eitanshachor/spokequeries/blob/main/README.md#received-texts) | `515,111` | 12/10/20 |
+| Metric | Number | Context | Updated |
+| :--- | ---: | --- | ---: |
+| [Sent Texts](https://github.com/eitanshachor/spokequeries/blob/main/README.md#sent-texts) | `3,203,204` | The number of attempted texts we tried to send to people on our lists. | 12/10/20 |
+| [Texts Delivered](https://github.com/eitanshachor/spokequeries/blob/main/README.md#texts-delivered) | `2,794,488` | Out of the number of attempted texts, the number of texts that were actually delivered (as far as we know from our data). | 12/10/20 |
+| [Received Texts](https://github.com/eitanshachor/spokequeries/blob/main/README.md#received-texts) | `515,111` |  The number of texts we received throughout the campaign. This metric includes opt-out 'stop' texts. | 12/10/20 |
 
 
 ***
