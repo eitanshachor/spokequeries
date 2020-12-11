@@ -8,7 +8,7 @@ An updating list for keeping Spoke queries.
 - [Sent Texts](https://github.com/eitanshachor/spokequeries/blob/main/README.md#sent-texts)
 - [Received Texts](https://github.com/eitanshachor/spokequeries/blob/main/README.md#received-texts)
 - [Texts Delivered](https://github.com/eitanshachor/spokequeries/blob/main/README.md#texts-delivered)
-- [Texts Received Excluding 'Stop']()
+- [Texts Received Excluding 'Stop'](https://github.com/eitanshachor/spokequeries/blob/main/README.md#texts-received-excluding-stop)
 ***
 
 ## Topline Numbers w/Query Links
@@ -18,7 +18,7 @@ An updating list for keeping Spoke queries.
 | [Sent Texts](https://github.com/eitanshachor/spokequeries/blob/main/README.md#sent-texts) | `3,203,204` | The number of attempted texts we tried to send to people on our lists. | 12/10/20 |
 | [Texts Delivered](https://github.com/eitanshachor/spokequeries/blob/main/README.md#texts-delivered) | `2,794,488` | Out of the number of attempted texts, the number of texts that were actually delivered (as far as we know from our data). | 12/10/20 |
 | [Received Texts](https://github.com/eitanshachor/spokequeries/blob/main/README.md#received-texts) | `515,111` |  The number of texts we received throughout the campaign. This metric includes opt-out 'stop' texts. | 12/10/20 |
-| [Texts Received Excluding 'Stop']() | `308,741` | A huge percentage of texts we received were people opting out of future text messages. We had to include opt-out langue later on, so about 2/5 of our total received texts were people not wanting to engage. | 12/10/20 |
+| [Texts Received Excluding 'Stop'](https://github.com/eitanshachor/spokequeries/blob/main/README.md#texts-received-excluding-stop) | `308,741` | A huge percentage of texts we received were people opting out of future text messages. We had to include opt-out langue later on, so about 2/5 of our total received texts were people not wanting to engage. | 12/10/20 |
 
 
 ***
