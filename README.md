@@ -1,8 +1,9 @@
 # Spoke Queries
 An updating list for keeping Spoke queries.
 
-
+***
 - [Campaign Contacts Who Opted-Out w/'STOP'](https://github.com/eitanshachor/spokequeries/blob/main/README.md#campaign-contacts-who-opted-out-wstop)
+
 
 ### Campaign Contacts Who Opted-Out w/'STOP'
 ```SQL
