@@ -4,21 +4,7 @@ An updating list for keeping Spoke queries.
 - [Campaign Contacts Who Opted-Out w/'STOP'](https://github.com/eitanshachor/spokequeries/blob/main/README.md#campaign-contacts-who-opted-out-wstop)
 - [Distinct Cells Where People Opted Out w/'Stop'](https://github.com/eitanshachor/spokequeries/blob/main/README.md#distinct-cells-where-people-opted-out-wstop)
 - [Proper Date Formatting](https://github.com/eitanshachor/spokequeries/blob/main/README.md#proper-date-formatting)
-- [New Voters Contacted Each Day]
-
-| Campaign Title | New Voters Contacted | Replies not 'stop' | replies that are stop |
-| --- | --- | --- | --- |
-VOTER CONTACT (TEST)/PERSUASION UNIVERSE/25k/8-25-20 | 2576 | 2062| 514
-VOTER CONTACT/RETENTION UNIVERSE/60k/8-26-20	9194	7586	1608
-VOTER CONTACT/RETENTION UNIVERSE/60k/8-31-20	8127	6548	1579
-VOTER CONTACT/RETENTION UNIVERSE/50k/9-8-20	6132	4928	1204
-VOLUNTEER RECRUITMENT/PROSPECT UNIVERSE/18.2k/9-11-20	2335	1930	405
-VOLUNTEER RECRUITMENT/PROSPECT UNIVERSE/10.2k/9-14-20	1607	1445	162
-VOTER CONTACT/RETENTION/62k/9-16-20	9130	7271	1859
-Volunteer Prospects/785/9-17-20	231	227	4
-VOLUNTEER RECRUITMENT/PROSPECT UNIVERSE/21.5k/9-21-20	2818	2365	453
-VOTER CONTACT/RETENTION/31k/9-22-20	4187	3443	744
-WFP1: VOTER CONTACT/RETENTION/50k/9-22-20	6293	5248	1045
+- [New Voters Contacted Each Day](https://github.com/eitanshachor/spokequeries/blob/main/README.md#new-voters-contacted-each-day)
 
 ***
 ### Campaign Contacts Who Opted-Out w/'STOP'
