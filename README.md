@@ -20,6 +20,72 @@ An updating list for keeping Spoke queries.
 | [Received Texts](https://github.com/eitanshachor/spokequeries/blob/main/README.md#received-texts) | `515,111` |  The number of texts we received throughout the campaign. This metric includes opt-out 'stop' texts. | 12/10/20 |
 | [Texts Received Excluding 'Stop'](https://github.com/eitanshachor/spokequeries/blob/main/README.md#texts-received-excluding-stop) | `308,741` | A huge percentage of texts we received were people opting out of future text messages. We had to include opt-out langue later on, so about 2/5 of our total received texts were people not wanting to engage. | 12/10/20 |
 
+### This one calculates lots of important stuff
+```SQL
+SELECT
+    c.id AS camp_id,
+    c.title AS title,
+    c.organization_id AS org,
+    texters::int,
+	contacts::int,
+    texts_sent::int,
+    replies::dec,
+	round((replies::decimal / texts_sent), 4)  AS reply_rate,
+	meaningfulreplies::dec,
+	round((meaningfulreplies::decimal / texts_sent), 4)  AS meaningful_reply_rate,
+	meaningfulreplyers::int,
+	round((meaningfulreplyers::decimal / contacts), 4) as meaningfulreplyerrate,
+    total_texts::dec,
+    opt_outs::int,
+    round((opt_outs::decimal / texts_sent), 4)  AS opt_out_rate,
+    /* cost per texter = total_texts $0.013 assumes typical text is two 'message segments', (one message segment is $0.0065) see https://www.twilio.com/blog/2017/03/what-the-heck-is-a-segment.html#segment  */
+    round((total_texts * .013), 4) AS costid,
+	costid_2::dec,
+	round((costid_2::decimal / contacts), 4) as cost4contact,
+	round((costid_2::decimal / NULLIF(replies, 0)), 4) as cost4reply,
+	round((costid_2::decimal / NULLIF(meaningfulreplyers, 0)), 4) as cost4goodcontact
+	
+FROM public.campaign AS c
+INNER JOIN public.organization AS o ON o.id = c.organization_id
+INNER JOIN (
+    SELECT
+        campaign_id,
+        COUNT (DISTINCT m.user_id) AS texters,
+		COUNT (DISTINCT m.campaign_contact_id) AS contacts,
+        COUNT(DISTINCT (
+          CASE WHEN m.is_from_contact = 'false' THEN m.id END
+        )) AS texts_sent,
+        COUNT(DISTINCT (
+          CASE WHEN m.is_from_contact = 'true' THEN m.id END
+        )) AS replies,
+		COUNT(DISTINCT (
+          CASE WHEN m.is_from_contact = 'true' 
+		AND m.text != 'STOP'
+		AND m.text != 'stop'
+		AND m.text != 'Stop'
+			THEN m.id END
+        )) AS meaningfulreplies,
+		COUNT(DISTINCT (
+          CASE WHEN m.is_from_contact = 'true' 
+		AND m.text != 'STOP'
+		AND m.text != 'stop'
+		AND m.text != 'Stop'
+			THEN m.campaign_contact_id END
+        )) AS meaningfulreplyers,
+        COUNT(DISTINCT m.id) AS total_texts,
+        COUNT(DISTINCT (
+		  CASE WHEN cc.is_opted_out = 'true' THEN cc.id END
+		)) AS opt_outs,
+		SUM(CEIL(LENGTH(m.text)::numeric / 160) * .0065) as costid_2
+    FROM public.campaign_contact cc
+    JOIN public.message m ON m.campaign_contact_id = cc.id
+    GROUP BY 1)
+AS n ON n.campaign_id = c.id
+WHERE campaign_id >= 23 AND
+	o.id = 5
+ORDER BY 1,2
+```
+
 
 ***
 ### Campaign Contacts Who Opted-Out w/'STOP'
